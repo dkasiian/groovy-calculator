@@ -1,5 +1,8 @@
 package com.epam.cdp.caclulator
 
+import groovy.util.logging.Log
+
+@Log
 class GroovyCalculator {
     final static def INCORRECT_EXPRESSION = "Expression is incorrect. Expression: "
 
@@ -97,15 +100,19 @@ class GroovyCalculator {
 
                 switch (it) {
                     case PLUS:
+                        log.info("Operation: ${PLUS}; arg1: ${bi1}; arg2: ${bi2};")
                         stack.push((bi1 + bi2).toString())
                         break
                     case MINUS:
+                        log.info("Operation: ${MINUS}; arg1: ${bi1}; arg2: ${bi2};")
                         stack.push((bi1 - bi2).toString())
                         break
                     case MULTIPLY:
+                        log.info("Operation: ${MULTIPLY}; arg1: ${bi1}; arg2: ${bi2};")
                         stack.push((bi1 * bi2).toString())
                         break
                     case DIVIDE:
+                        log.info("Operation: ${DIVIDE}; arg1: ${bi1}; arg2: ${bi2};")
                         stack.push((bi1 / bi2).toString())
                         break
                 }

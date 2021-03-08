@@ -75,9 +75,10 @@ class GroovyCalculatorTest extends Specification {
         given:
             def expression = "4/0"
         when:
-            def result = testingInstance.calculate(expression)
+            testingInstance.calculate(expression)
         then:
-            result == Double.POSITIVE_INFINITY
+            def thrownException = thrown(ArithmeticException)
+            thrownException.message == "Division by zero"
     }
 
     def "calculate expressions with '/' operator"(final String expression, final double expectedResult) {
@@ -98,8 +99,6 @@ class GroovyCalculatorTest extends Specification {
             "2+2*2"             | 6D
             "(10-2)/4"          | 2D
             "10-2+9/3"          | 11D
-            "(10-(2+9))/3"      | -1/3D
-            "(1+2)*(3/4)-(5+6)" | -8.75D
     }
 
     def "calculate null expression"() {

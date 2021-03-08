@@ -92,21 +92,21 @@ class GroovyCalculator {
             if (!isOperator(it)) {
                 stack.push(it)
             } else {
-                final Double d2 = stack.pop().toDouble()
-                final Double d1 = stack.pop().toDouble()
+                final BigInteger bi2 = stack.pop().toBigInteger()
+                final BigInteger bi1 = stack.pop().toBigInteger()
 
                 switch (it) {
                     case PLUS:
-                        stack.push((d1 + d2).toString())
+                        stack.push((bi1 + bi2).toString())
                         break
                     case MINUS:
-                        stack.push((d1 - d2).toString())
+                        stack.push((bi1 - bi2).toString())
                         break
                     case MULTIPLY:
-                        stack.push((d1 * d2).toString())
+                        stack.push((bi1 * bi2).toString())
                         break
                     case DIVIDE:
-                        stack.push((d1 / d2).toString())
+                        stack.push((bi1 / bi2).toString())
                         break
                 }
             }

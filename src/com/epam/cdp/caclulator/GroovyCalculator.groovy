@@ -135,9 +135,7 @@ class GroovyCalculator {
         validateExpression(expression)
 
         final def splittedExpression = expression.split(EXPRESSION_SPLIT_REGEX)
-
         final def reversePolishNotation = convertToRPN(splittedExpression)
-
         final Double result = resolveRPN(reversePolishNotation)
 
         result
